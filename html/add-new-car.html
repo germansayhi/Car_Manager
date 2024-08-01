@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshop: Add New Car</title>
+    <link rel="icon" href="../img/car.jpg">
+    <link rel="stylesheet" href="../css/add-new-car.css">
+</head>
+<body>
+    <header>
+        <h1> AUTOMOTIVE REPAIR</h1>
+    </header>
+    <div class="container">
+        <aside>
+            <div class="menu">
+                <p><b><a href="./index.html">Menu:</a></b></p>
+                <p><a href="./add-new-car.html">Add a new car</a></p>
+                <p><a href="./car-management.html">Cars management</a></p>
+            </div>
+        </aside>
+        <div class="vr"></div>
+        <main>
+            <form id="car-create-form">
+                <p><b>CAR DETAILS</b></p>
+              <div class="form-control">
+                <label for="license-plate">License plate</label>
+                <input type="text" name="license-plate" id="license-plate" 
+                placeholder="30H.55555" required>
+              </div>
+              <div class="form-control">
+                <label for="repair-date">Repair date</label>
+                <input type="date" name="repair-date" id="repair-date" 
+                placeholder="12/01/2023" required>
+              </div>
+              <div class="form-control">
+                <label for="customer-name">Customer name</label>
+                <input type="text" name="customer-name" id="customer-name" 
+                placeholder="Bùi QUang Đức" required>
+              </div>
+              <div class="form-control">
+                <label for="catalog">Catalog</label>
+                <input
+                    type="text"
+                    name="catalog"
+                    id="catalog"
+                    placeholder="Bảo dưỡng định kỳ lần 1"
+                    required />
+            </div>
+            <div class="form-control">
+                <label for="car-maker">Car maker</label>
+                <input
+                    type="text"
+                    name="car-maker"
+                    id="car-maker"
+                    placeholder="Honda"
+                    required />
+            </div>
+            <div class="form-submit">
+                <div>
+                    <input type="submit" value="Save Car" />
+                    <input type="reset" value="Reset" />
+                </div>
+                <a href="./accessory-detail.html">Accessory details</a>
+            </div>
+            </form>
+        </main>
+    </div>
+    <footer>
+        <i>BASED ON SPRING FRAMEWORK</i>
+    </footer>
+    <script src="../js/add-new-car.js"></script>
+</body>
+</html>
