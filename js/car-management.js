@@ -22,7 +22,10 @@ form.onsubmit = async function(event){
     await update();
     findAll();
     form.reset();
-}
+};
+
+document.getElementById("size").onchange = findAll;
+document.getElementById("page").onchange = findAll
 
 findAll();
 

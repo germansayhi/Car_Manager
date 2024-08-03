@@ -17,12 +17,15 @@ form.addEventListener("submit", async function (event) {
 	findAll();
 });
 
+document.getElementById("size").onchange = findAll;
+document.getElementById("page").onchange = findAll
+
 // load dữ liệu hiển thị ra màn hình
 findAll();
 
 async function findAll() {
 	loading.style.display = "flex";
-    const url = new URL(`${BASE_URL}/api/v1/accesoories`);
+    const url = new URL(`${BASE_URL}/api/v1/accessories`);
     url.search = new URLSearchParams({
         page: document.getElementById("page").value,
         size: document.getElementById("size").value
@@ -35,6 +38,7 @@ async function findAll() {
     });
 	const body = await response.json();
 	showAccessories(body.content);
+	updatePagination(body.number + 1);
 	loading.style.display = "none";
 }
 
