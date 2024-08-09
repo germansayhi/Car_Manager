@@ -23,7 +23,7 @@ public class AccessoryMapper {
         dto.setRepairStatus(accessory.getRepairStatus());
         dto.setRepairDate(accessory.getCar().getRepairDate());
         dto.setLicensePlate(accessory.getCar().getLicensePlate());
-        return dto;
+        return dto.withSelfRel();
     }
     public static void map(AccessoryUpdateForm form, Accessory accessory){
         accessory.setStatusDamaged(form.getStatusDamaged());

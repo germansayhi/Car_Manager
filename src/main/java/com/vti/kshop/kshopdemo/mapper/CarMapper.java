@@ -24,7 +24,7 @@ public class CarMapper {
         dto.setRepairDate(car.getRepairDate());
         dto.setLicensePlate(car.getLicensePlate());
         dto.setCustomerName(car.getCustomerName());
-        return dto;
+        return dto.withSelfRel();
     }
     public static void map(CarUpdateForm form, Car car){
         car.setLicensePlate(form.getLicensePlate());
