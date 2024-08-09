@@ -4,15 +4,18 @@ import com.vti.kshop.kshopdemo.dto.CarDto;
 import com.vti.kshop.kshopdemo.form.CarCreateForm;
 import com.vti.kshop.kshopdemo.form.CarUpdateForm;
 import com.vti.kshop.kshopdemo.service.CarService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
 @CrossOrigin("*")
+@Validated
 public class CarController {
     private CarService carService;
 
@@ -28,12 +31,12 @@ public class CarController {
 
     @PostMapping("/api/v1/cars")
     @ResponseStatus(HttpStatus.CREATED)
-    public  CarDto create(@RequestBody CarCreateForm form){
+    public  CarDto create(@RequestBody @Valid CarCreateForm form){
         return carService.create(form);
     }
 
     @PutMapping("/api/v1/cars/{id}")
-    public CarDto update(@PathVariable("id") Long id,@RequestBody CarUpdateForm form){
+    public CarDto update(@PathVariable("id") Long id,@RequestBody @Valid CarUpdateForm form){
         return carService.update(id, form);
     }
 
