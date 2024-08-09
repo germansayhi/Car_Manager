@@ -5,6 +5,7 @@ import com.vti.kshop.kshopdemo.form.AccessoryCreateForm;
 import com.vti.kshop.kshopdemo.form.AccessoryUpdateForm;
 import com.vti.kshop.kshopdemo.service.AccessoryService;
 import com.vti.kshop.kshopdemo.service.CarService;
+import com.vti.kshop.kshopdemo.validation.CarIdExists;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -32,18 +33,18 @@ public class AccessoryController {
     }
 
     @GetMapping("/api/v1/accessories/{id}")
-    public AccessoryDto findByID(@PathVariable("id") Long id){
+    public AccessoryDto findByID(@PathVariable("id") @CarIdExists Long id){
         return accessoryService.findById(id);
     }
 
     @PutMapping("/api/v1/accessories/{id}")
-    public AccessoryDto update(@PathVariable("id") Long id,@RequestBody @Valid AccessoryUpdateForm form){
+    public AccessoryDto update(@PathVariable("id") Long id,@RequestBody @CarIdExists AccessoryUpdateForm form){
         return accessoryService.update(id,form);
     }
 
     @DeleteMapping("/api/v1/accessories/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable("id")Long id){
+    public void deleteById(@PathVariable("id") @CarIdExists Long id){
         accessoryService.deleteByID(id);
 
     }
