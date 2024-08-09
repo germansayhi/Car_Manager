@@ -1,6 +1,7 @@
 package com.vti.kshop.kshopdemo.form;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +17,7 @@ public class CarCreateForm {
     @Length(max =50, message = "Car LicensePlate has max 50 character")
     private String licensePlate;
 
-    @NotBlank(message = "Car repairDate must not be blank")
+    @NotNull(message = "Car repairDate must not be blank")
     @PastOrPresent
     private LocalDate repairDate;
 
