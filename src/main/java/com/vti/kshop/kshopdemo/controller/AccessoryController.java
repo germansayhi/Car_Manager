@@ -2,9 +2,9 @@ package com.vti.kshop.kshopdemo.controller;
 
 import com.vti.kshop.kshopdemo.dto.AccessoryDto;
 import com.vti.kshop.kshopdemo.form.AccessoryCreateForm;
+import com.vti.kshop.kshopdemo.form.AccessoryFilterForm;
 import com.vti.kshop.kshopdemo.form.AccessoryUpdateForm;
 import com.vti.kshop.kshopdemo.service.AccessoryService;
-import com.vti.kshop.kshopdemo.service.CarService;
 import com.vti.kshop.kshopdemo.validation.CarIdExists;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -28,8 +28,8 @@ public class AccessoryController {
     }
 
     @GetMapping("/api/v1/accessories")
-    public Page<AccessoryDto> findAll(Pageable pageable){
-        return accessoryService.findAll(pageable);
+    public Page<AccessoryDto> findAll(AccessoryFilterForm form, Pageable pageable){
+        return accessoryService.findAll(form, pageable);
     }
 
     @GetMapping("/api/v1/accessories/{id}")

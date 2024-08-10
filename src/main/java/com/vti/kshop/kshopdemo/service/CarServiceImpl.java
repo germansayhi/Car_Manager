@@ -2,9 +2,11 @@ package com.vti.kshop.kshopdemo.service;
 
 import com.vti.kshop.kshopdemo.dto.CarDto;
 import com.vti.kshop.kshopdemo.form.CarCreateForm;
+import com.vti.kshop.kshopdemo.form.CarFilterForm;
 import com.vti.kshop.kshopdemo.form.CarUpdateForm;
 import com.vti.kshop.kshopdemo.mapper.CarMapper;
 import com.vti.kshop.kshopdemo.repository.CarRepository;
+import com.vti.kshop.kshopdemo.specification.CarSpecification;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,8 +26,9 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public Page<CarDto> findAll(Pageable pageable) {
-        return carRepository.findAll(pageable)
+    public Page<CarDto> findAll(CarFilterForm form, Pageable pageable) {
+        var spec = CarSpecification.buildSpec(form);
+        return carRepository.findAll(spec, pageable)
                 .map(CarMapper::map);
     }
 

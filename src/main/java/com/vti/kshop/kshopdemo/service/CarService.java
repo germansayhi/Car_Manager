@@ -2,6 +2,7 @@ package com.vti.kshop.kshopdemo.service;
 
 import com.vti.kshop.kshopdemo.dto.CarDto;
 import com.vti.kshop.kshopdemo.form.CarCreateForm;
+import com.vti.kshop.kshopdemo.form.CarFilterForm;
 import com.vti.kshop.kshopdemo.form.CarUpdateForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 public interface CarService {
     CarDto create(CarCreateForm form);
 
-    Page<CarDto> findAll(Pageable pageable);
+    Page<CarDto> findAll(CarFilterForm form, Pageable pageable);
 
     CarDto findById(Long id);
 

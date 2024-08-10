@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 description = "KShop REST APIs Documentation",
                 termsOfService = "https://github.com/khoa-omega/kshop",
                 contact = @Contact(
-                        name = "Nguyễn Văn Khoa",
+                        name = "Bùi Quang Đức",
                         url = "https://github.com/khoa-omega",
                         email = "nvkhoa05@gmail.com"
                 ),

@@ -2,6 +2,7 @@ package com.vti.kshop.kshopdemo.controller;
 
 import com.vti.kshop.kshopdemo.dto.CarDto;
 import com.vti.kshop.kshopdemo.form.CarCreateForm;
+import com.vti.kshop.kshopdemo.form.CarFilterForm;
 import com.vti.kshop.kshopdemo.form.CarUpdateForm;
 import com.vti.kshop.kshopdemo.service.CarService;
 import com.vti.kshop.kshopdemo.validation.CarIdExists;
@@ -21,8 +22,8 @@ public class CarController {
     private CarService carService;
 
     @GetMapping("/api/v1/cars")
-    public Page<CarDto> findAll(Pageable pageable){
-        return carService.findAll(pageable);
+    public Page<CarDto> findAll(CarFilterForm form, Pageable pageable){
+        return carService.findAll(form, pageable);
     }
 
     @GetMapping("/api/v1/cars/{id}")

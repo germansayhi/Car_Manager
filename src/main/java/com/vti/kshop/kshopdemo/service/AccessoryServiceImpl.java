@@ -2,10 +2,12 @@ package com.vti.kshop.kshopdemo.service;
 
 import com.vti.kshop.kshopdemo.dto.AccessoryDto;
 import com.vti.kshop.kshopdemo.form.AccessoryCreateForm;
+import com.vti.kshop.kshopdemo.form.AccessoryFilterForm;
 import com.vti.kshop.kshopdemo.form.AccessoryUpdateForm;
 import com.vti.kshop.kshopdemo.mapper.AccessoryMapper;
 import com.vti.kshop.kshopdemo.repository.AccessoryRepository;
 import com.vti.kshop.kshopdemo.repository.CarRepository;
+import com.vti.kshop.kshopdemo.specification.AccessorySpecification;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,8 +33,9 @@ public class AccessoryServiceImpl implements  AccessoryService{
     }
 
     @Override
-    public Page<AccessoryDto> findAll(Pageable pageable) {
-        return accessoryRepository.findAll(pageable)
+    public Page<AccessoryDto> findAll(AccessoryFilterForm form, Pageable pageable) {
+        var spec = AccessorySpecification.buildSpec(form);
+        return accessoryRepository.findAll(spec, pageable)
                 .map(AccessoryMapper::map);
     }
 
