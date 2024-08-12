@@ -9,8 +9,6 @@ import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class AccessorySpecification {
@@ -37,6 +35,7 @@ public class AccessorySpecification {
                     var predicate = builder.equal(root.get("price"),pattern);
                     predicates.add(predicate);
                 }
+
 
                 var search = form.getSearch();
                 if(StringUtils.hasText(search)){
