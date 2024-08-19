@@ -5,4 +5,6 @@ import com.vti.kshop.kshopdemo.form.UserCreatedForm;
 
 public interface UserService {
     UserDto create(UserCreatedForm form);
+
+    void updatePassword(Long id, String password);
 }

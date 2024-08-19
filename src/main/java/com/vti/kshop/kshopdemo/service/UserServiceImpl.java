@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -28,6 +29,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         var savedUser = userRepository.save(user);
         return modelMapper.map(savedUser, UserDto.class);
     }
+
+    @Override
+    @Transactional
+    public void updatePassword(Long id, String password) {
+        var encodedPassword = passwordEncoder.encode(password);
+        userRepository.updatePassword(id, encodedPassword);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var user = userRepository.findByUsernameOrEmail(username, username);

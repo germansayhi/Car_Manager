@@ -19,4 +19,11 @@ public class UserController {
     public UserDto create(@RequestBody @Valid UserCreatedForm form){
         return userService.create(form);
     }
+
+    @PatchMapping("/api/v1/users/{id}/newpassword")
+    public void updatePassword(
+            @PathVariable Long id,
+            @RequestBody String password){
+        userService.updatePassword(id, password);
+    }
 }
