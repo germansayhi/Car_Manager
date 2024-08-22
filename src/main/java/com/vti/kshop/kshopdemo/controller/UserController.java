@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @AllArgsConstructor
 @RestController
 @CrossOrigin("*")
@@ -18,6 +20,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto create(@RequestBody @Valid UserCreatedForm form){
         return userService.create(form);
+    }
+
+    @GetMapping("/api/v1/login")
+    public UserDto login(Principal principal) {
+      return userService.login(principal);
     }
 
     @PatchMapping("/api/v1/users/{id}/newpassword")

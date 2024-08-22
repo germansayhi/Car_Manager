@@ -38,7 +38,7 @@ public class CarController {
     }
 
     @PutMapping("/api/v1/cars/{id}")
-    public CarDto update(@PathVariable("id") Long id,@RequestBody @CarIdExists CarUpdateForm form){
+    public CarDto update(@PathVariable("id") Long id,@RequestBody  CarUpdateForm form){
         return carService.update(id, form);
     }
 

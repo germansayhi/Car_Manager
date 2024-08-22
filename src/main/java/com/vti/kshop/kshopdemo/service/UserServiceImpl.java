@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
+
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -24,6 +26,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDto create(UserCreatedForm form) {
         var user = modelMapper.map(form, User.class);
+        var role = User.Role.EMPLOYEE;
         var encodedPassword = passwordEncoder.encode(form.getPassword());
         user.setPassword(encodedPassword);
         var savedUser = userRepository.save(user);
@@ -35,6 +38,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public void updatePassword(Long id, String password) {
         var encodedPassword = passwordEncoder.encode(password);
         userRepository.updatePassword(id, encodedPassword);
+    }
+
+    @Override
+    public UserDto login(Principal principal) {
+        var username = principal.getName();
+        var user = userRepository.findByUsernameOrEmail(username, username);
+        return modelMapper.map(user, UserDto.class);
     }
 
     @Override

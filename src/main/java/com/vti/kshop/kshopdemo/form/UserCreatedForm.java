@@ -31,4 +31,6 @@ public class UserCreatedForm {
             min =6,max =12,
             message = "User password length must between 6 and 12 character")
     private String password;
+
+    private String role;
 }

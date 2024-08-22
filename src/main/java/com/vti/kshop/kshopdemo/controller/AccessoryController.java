@@ -38,7 +38,7 @@ public class AccessoryController {
     }
 
     @PutMapping("/api/v1/accessories/{id}")
-    public AccessoryDto update(@PathVariable("id") Long id,@RequestBody @CarIdExists AccessoryUpdateForm form){
+    public AccessoryDto update(@PathVariable("id") Long id,@RequestBody AccessoryUpdateForm form){
         return accessoryService.update(id,form);
     }
 
