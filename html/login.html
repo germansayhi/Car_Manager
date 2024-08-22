@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshop: Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="icon" href="../img/car.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-signin">
+            <div class="Sign-In-header">Login</div>
+            <form id="login-form" class="signIn-form">
+                <div class="input-dk">
+                    <input type="text" name="username" id="username" class="input-field" required>
+                    <label for="username" class="label">Username</label>
+                </div>
+
+                <div class="input-dk password-field">
+                    <input type="password" name="password" id="password" class="input-field" required>
+                    <label for="password" class="label">Password</label>
+                    <span class="toggle-password" onclick="togglePassword()">
+                        <i id="eye-icon" class="fa-solid fa-eye"></i>
+                        <i id="eye-icon-hidden" class="fa-solid fa-eye-low-vision"></i>
+                    </span>
+                </div>
+
+                <div class="input-dk">
+                    <input type="submit" class="input-sign" value="Login">
+                </div>
+            </form>
+            <br>
+            <p>Don't have an Account? <a href="./Register.html">Register</a></p>
+        </div>
+    </div>
+    <script src="/js/toggle-password.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>
+

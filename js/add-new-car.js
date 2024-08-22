@@ -20,10 +20,14 @@ form.addEventListener("submit", function(event){
 const BASE_URL ="http://localhost:8080"
 
  async function create(){
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password"));
+
     const respone = await fetch(`${BASE_URL}/api/v1/cars`,{
         method: "POST",
         headers:{
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": "Basic " + btoa(username+":"+password),
         },
         body:JSON.stringify({
             licensePlate: formLicensePlate.value,

@@ -36,11 +36,16 @@ async function findAll() {
         page: document.getElementById("page").value,
         size: document.getElementById("size").value
     }).toString();
+	
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password"));
+
     const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
+        method: "GET", 
+                headers: {
+                    "Authorization": "Basic " + btoa(username+":"+password),
+                    "Content-Type": "application/json"
+                },
     });
     const body = await response.json();
     showCars(body.content);
@@ -82,11 +87,16 @@ function showCars(cars) {
 }
 
 async function update() {
-	const id = formId.value;
+	const id = formId.value; 
+
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password"));
+
 	const response = await fetch(`${BASE_URL}/api/v1/cars/${id}`, {
 		method: "PUT",
 		headers: {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"Authorization": "Basic " + btoa(username+":"+password),
 		},
 		body: JSON.stringify({
 			licensePlate: formLicensePlate.value,
@@ -101,10 +111,14 @@ async function update() {
 }
 
 async function deleteById(id) {
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password")); 
+
     const response = await fetch(`${BASE_URL}/api/v1/cars/${id}`, {
         method: "DELETE",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+			"Authorization": "Basic " + btoa(username+":"+password),
         }
     });
 }
@@ -128,3 +142,4 @@ function updatePagination(page){
 		goToPage(page +1);
 	}
 }
+

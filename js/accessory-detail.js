@@ -30,10 +30,15 @@ async function findAll() {
         page: document.getElementById("page").value,
         size: document.getElementById("size").value
     }).toString();
+
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password"));
+
     const response = await fetch(url, {
         method: "GET",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+			"Authorization": "Basic " + btoa(username+":"+password),
         }
     });
 	const body = await response.json();
@@ -80,6 +85,9 @@ function showAccessories(accessories) {
 
 async function createOrUpdate() {
 	const id = formId.value;
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password"));
+
 	const method = id ? 'PUT' : 'POST';
 	const url = id
 		? `${BASE_URL}/api/v1/accessories/${id}`
@@ -87,7 +95,8 @@ async function createOrUpdate() {
 	const response = await fetch(url, {
 		method: method,
 		headers: {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"Authorization": "Basic " + btoa(username+":"+password),
 		},
 		body: JSON.stringify({
 			name: formName.value,
@@ -103,10 +112,14 @@ async function createOrUpdate() {
 }
 
 async function deleteById(id) {
+	const username = JSON.parse(localStorage.getItem("username"));
+	const password = JSON.parse(localStorage.getItem("password"));
+
 	const response = await fetch(`${BASE_URL}/api/v1/accessories/${id}`, {
 		method: "DELETE",
 		headers: {
-			"Content-Type": "application/json"
+			"Content-Type": "application/json",
+			"Authorization": "Basic " + btoa(username+":"+password),
 		}
 	});
 }

@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background: rgba(0, 0, 0, 0.2) url(../ima/img2.jpg) center/cover no-repeat fixed;
+    color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.form-signin {
+    position: relative;
+    padding: 3rem 4rem; /* Giảm padding để form nhỏ hơn */
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    width: 100%;
+    max-width: 400px; /* Giảm kích thước tối đa của form */
+    background-color: #000000;
+}
+
+.Sign-In-header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    transform: translateX(-50%);
+    border-radius: 0px 0px 20px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: clamp(1.2rem, 3vw, 1.4rem); /* Giảm kích thước tiêu đề */
+}
+
+.signIn-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem); /* Giảm kích thước chữ */
+    gap: 1.4rem;
+}
+
+.input-dk {
+    position: relative;
+    width: 100%;
+}
+
+.input-field {
+    width: 100%; /* Đảm bảo ô nhập liệu chiếm toàn bộ chiều rộng */
+    padding: 0.7rem; /* Tăng padding cho ô nhập liệu lớn hơn */
+    border: 3px solid #ffffff;
+    border-radius: 30px;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    padding-right: 3rem; /* Để tạo không gian cho biểu tượng mắt */
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input-field:focus~.label,
+.input-field:valid~.label {
+    top: 0%;
+    left: 0%;
+    padding: 0 10px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.password-field {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px; /* Đặt gần bên phải ô nhập liệu */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
+
+#eye-icon-hidden {
+    display: none; /* Ẩn biểu tượng mặc định */
+}
+
+.input-sign {
+    width: 100%;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Tăng kích thước chữ */
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.9s;
+    margin-left: 12px;
+    box-shadow: 3px 3px #000000;
+}
+
+.input-sign:hover {
+    background:green;
+    color: #ffffff;
+}
+
+p {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+p a {
+    font-weight: 500;
+}
+

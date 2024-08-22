@@ -1,3 +1,4 @@
+/* Font và Reset CSS */
 @font-face {
     font-family: Agbalumo;
     src: url(../font/OFL.txt);
@@ -9,24 +10,84 @@
     box-sizing: border-box;
 }
 
+/* Cơ bản */
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25em;
     cursor: url(../img/BMW_i8_RoadsterCursor.png), default;
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 16px;
     background-color: #2ed574;
     color: #ffffff;
+    position: relative;
 }
 
+/* Hiển thị thông tin người dùng */
+#user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+#user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#user-info span {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#user-info button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#user-info.hidden {
+    display: none;
+}
+
+/* Nút Đăng nhập/Đăng ký */
+#auth-buttons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.auth-btn {
+    background-color: #2ed574;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.auth-btn:hover {
+    background-color: #1e8c4c;
+}
+
+/* Container */
 .container {
     display: flex;
     min-height: 75vh;
 }
 
+/* Sidebar */
 aside {
     padding: 24px 32px;
 }
@@ -39,53 +100,57 @@ aside {
     top: 16px;
 }
 
+/* Vertical separator */
 .vr {
     width: 5px;
     background-color: rgb(23, 189, 23);
 }
 
+/* Main content */
 main {
-  flex: 1;
-  padding: 24px 32px;
-
+    flex: 1;
+    padding: 24px 32px;
 }
 
-.form-control{
+/* Form styling */
+.form-control {
     display: flex;
     flex-direction: column;
 }
 
-.form-control label::after{
+.form-control label::after {
     content: "*";
     color: red;
 }
 
-.form-control input{
+.form-control input {
     height: 40px;
     padding: 0 8px;
     font-family: inherit;
     font-size: inherit;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     row-gap: 16px;
     max-width: 500px;
 }
 
-.form-submit{
+/* Submit buttons */
+.form-submit {
     display: flex;
     justify-content: space-between;
 }
 
-.form-submit input{
+.form-submit input {
     font-size: inherit;
     font-family: inherit;
     padding: 0 8px;
     border-radius: 8px;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 16px 0;
