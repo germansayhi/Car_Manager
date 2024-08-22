@@ -37,10 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 const token = userData.token; // Giả sử token được trả về từ serverlog
                 console.log(`${username}:${password}`);
                 
+                const { fullname, avatar } = userData; // Lấy fullname và avatar từ dữ liệu trả về
+                
+                localStorage.setItem('userData', JSON.stringify({ fullname, avatar })); // Lưu thông tin vào localStorage
                 localStorage.setItem('username', JSON.stringify(username)); // Lưu mã thông báo vào localStorage
                 localStorage.setItem('password', JSON.stringify(password)); // Lưu mã thông báo vào localStorage
                 alert('Đăng nhập thành công, chào mừng ' + userData.fullname + '!');
-                window.location.href = '/html/car-management.html';
+                window.location.href = '/html/add-new-car.html';
             } else {
                 // Đăng nhập thất bại, hiển thị thông báo lỗi
                 alert('Đăng nhập thất bại: Vui lòng kiểm tra lại thông tin đăng nhập.');
@@ -51,5 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+
 
 

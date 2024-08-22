@@ -8,6 +8,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25em;
     cursor: url(../img/BMW_i8_RoadsterCursor.png), default;
+    background-color: #f4f4f4;
 }
 
 header {
@@ -16,18 +17,19 @@ header {
     background-color: #2ed574;
     color: #ffffff;
     position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .auth-container {
     position: absolute;
     top: 16px;
     right: 16px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 10px;
 }
-
-.auth-box {
+.auth-container {
     padding: 10px;
     border: 2px solid #ffffff;
     border-radius: 10px;
@@ -36,13 +38,13 @@ header {
     gap: 10px;
 }
 
+
 .auth-button {
-    display: inline-block;
     padding: 10px 20px;
     font-size: 1em;
-    color: #2ed574; /* Màu xanh lá cây */
+    color: #2ed574;
     background-color: #ffffff;
-    border: 2px solid #2ed574; /* Màu xanh lá cây */
+    border: 2px solid #2ed574;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
@@ -51,29 +53,49 @@ header {
 .auth-button:hover {
     background-color: #2ed574;
     border-color: #2ed574;
-    color: #ffffff; /* Đổi màu chữ khi hover */
+    color: #ffffff;
 }
+
+
 
 .container {
     display: flex;
     min-height: 75vh;
+    padding: 20px;
+    gap: 20px;
 }
 
 aside {
-    padding: 24px 32px;
+    width: 200px;
+    padding: 24px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
-    position: sticky;
-    top: 16px;
+    gap: 16px;
+}
+
+.menu p {
+    margin: 0;
+}
+
+.menu a {
+    color: #2ed574;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
 }
 
 .vr {
     width: 5px;
-    background-color: rgb(23, 189, 23);
+    background-color: #2ed574;
 }
 
 main {
@@ -81,6 +103,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2ed574;
 }
 
 footer {
@@ -88,4 +113,50 @@ footer {
     padding: 16px 0;
     background-color: #212529;
     color: #ffffff;
+    margin-top: auto;
 }
+
+/* Hiển thị thông tin người dùng */
+#user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    display: none; /* Ẩn khi chưa đăng nhập */
+}
+
+#user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    background-color: #212529;
+}
+
+#user-info span {
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#user-info button {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#user-info button:hover {
+    background-color: #d32f2f;
+}
+
+
+
+

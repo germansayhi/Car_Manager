@@ -13,6 +13,16 @@
 <body>
 	<header>
 		<h1>AUTOMOTIVE REPAIR</h1>
+		<div id="user-info" class="hidden">
+            <img id="avatar" src="../img/default-avatar.jpg" alt="Avatar" class="user-avatar">
+            <span id="username" class="user-name"></span>
+            <button id="logout-btn" class="logout-button">Đăng xuất</button>
+            </div>
+            <div id="auth-buttons" class="auth-container">
+                <a href="./login.html" class="auth-button">Login</a>
+                <a href="./register.html" class="auth-button">Register</a>
+            </div>
+        </div>
 	</header>
 	<div class="container">
 		<aside>
@@ -58,6 +68,7 @@
 					<a href="./accessory-detail.html">Accessory details</a>
 				</div>
 			</form>
+			<!-- Di chuyển bảng xuống dưới form -->
 			<div class="data">
 				<div class="table-container">
 					<table>
@@ -112,6 +123,6 @@
 	</footer>
 	<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="../js/car-management.js"></script>
+	<script src="../js/user-info.js"></script>
 </body>
-
 </html>

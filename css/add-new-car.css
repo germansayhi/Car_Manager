@@ -15,6 +15,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25em;
     cursor: url(../img/BMW_i8_RoadsterCursor.png), default;
+    background-color: #f4f4f4;
 }
 
 /* Header */
@@ -24,6 +25,7 @@ header {
     background-color: #2ed574;
     color: #ffffff;
     position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Hiển thị thông tin người dùng */
@@ -34,38 +36,55 @@ header {
     position: absolute;
     right: 16px;
     top: 16px;
+    display: none; /* Ẩn khi chưa đăng nhập */
 }
 
 #user-info img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 2px solid #ffffff;
+    background-color: #212529;
 }
 
 #user-info span {
-    font-weight: bold;
+    font-size: 1.2em;
     color: #ffffff;
-}
-
-#user-info button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 5px 10px;
+    font-weight: 500;
     cursor: pointer;
 }
 
-#user-info.hidden {
-    display: none;
+#user-info button {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#user-info button:hover {
+    background-color: #d32f2f;
 }
 
 /* Nút Đăng nhập/Đăng ký */
-#auth-buttons {
+.auth-container {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.auth-container {
+    padding: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
     display: flex;
     gap: 10px;
-    position: absolute;
-    right: 16px;
-    top: 16px;
 }
 
 .auth-btn {
@@ -85,34 +104,62 @@ header {
 .container {
     display: flex;
     min-height: 75vh;
+    padding: 20px;
+    gap: 20px;
 }
 
 /* Sidebar */
 aside {
-    padding: 24px 32px;
+    width: 200px;
+    padding: 24px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
-    position: sticky;
-    top: 16px;
+    gap: 16px;
+}
+
+.menu p {
+    margin: 0;
+}
+
+.menu a {
+    color: #2ed574;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
 }
 
 /* Vertical separator */
 .vr {
     width: 5px;
-    background-color: rgb(23, 189, 23);
+    background-color: #2ed574;
 }
 
 /* Main content */
 main {
     flex: 1;
-    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Căn lề trái */
+    padding: 24px;
 }
 
 /* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+}
+
 .form-control {
     display: flex;
     flex-direction: column;
@@ -130,14 +177,6 @@ main {
     font-size: inherit;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    max-width: 500px;
-}
-
-/* Submit buttons */
 .form-submit {
     display: flex;
     justify-content: space-between;
@@ -156,4 +195,25 @@ footer {
     padding: 16px 0;
     background-color: #212529;
     color: #ffffff;
+    margin-top: auto;
 }
+
+.auth-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #2ed574;
+    background-color: #ffffff;
+    border: 2px solid #2ed574;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #2ed574;
+    border-color: #2ed574;
+    color: #ffffff;
+}
+
+
+
