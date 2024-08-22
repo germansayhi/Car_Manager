@@ -42,8 +42,10 @@ aside {
 
 .menu {
 	display: flex;
-    flex-direction: column;
-    gap: 16px;
+	flex-direction: column;
+	row-gap: 16px;
+	position: sticky;
+	top: 16px;
 }
 
 .menu p {

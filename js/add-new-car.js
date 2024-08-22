@@ -16,12 +16,18 @@ form.addEventListener("submit", function(event){
     create();
     this.reset();
 });
-
 const BASE_URL ="http://localhost:8080"
 
  async function create(){
 	const username = JSON.parse(localStorage.getItem("username"));
 	const password = JSON.parse(localStorage.getItem("password"));
+
+    if (!username || !password) {
+        alert("Bạn cần phải đăng nhập trước khi tạo xe.");
+        // Chuyển hướng người dùng đến trang đăng nhập
+        window.location.href = "./login.html";
+        return;
+    }
 
     const respone = await fetch(`${BASE_URL}/api/v1/cars`,{
         method: "POST",
