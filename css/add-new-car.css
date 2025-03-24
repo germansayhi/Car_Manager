@@ -157,7 +157,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 500px;
+    max-width: 560px;
 }
 
 .form-control {

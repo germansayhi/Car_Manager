@@ -25,22 +25,22 @@ findAll();
 
 async function findAll() {
 	loading.style.display = "flex";
-    const url = new URL(`${BASE_URL}/api/v1/accessories`);
-    url.search = new URLSearchParams({
-        page: document.getElementById("page").value,
-        size: document.getElementById("size").value
-    }).toString();
+	const url = new URL(`${BASE_URL}/api/v1/accessories`);
+	url.search = new URLSearchParams({
+		page: document.getElementById("page").value,
+		size: document.getElementById("size").value
+	}).toString();
 
 	const username = JSON.parse(localStorage.getItem("username"));
 	const password = JSON.parse(localStorage.getItem("password"));
 
-    const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-			"Authorization": "Basic " + btoa(username+":"+password),
-        }
-    });
+	const response = await fetch(url, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			"Authorization": "Basic " + btoa(username + ":" + password),
+		}
+	});
 	const body = await response.json();
 	showAccessories(body.content);
 	updatePagination(body.number + 1);
@@ -84,10 +84,9 @@ function showAccessories(accessories) {
 }
 
 async function createOrUpdate() {
-	const id = formId.value;
 	const username = JSON.parse(localStorage.getItem("username"));
 	const password = JSON.parse(localStorage.getItem("password"));
-
+	const id = formId.value;
 	const method = id ? 'PUT' : 'POST';
 	const url = id
 		? `${BASE_URL}/api/v1/accessories/${id}`
@@ -96,7 +95,7 @@ async function createOrUpdate() {
 		method: method,
 		headers: {
 			"Content-Type": "application/json",
-			"Authorization": "Basic " + btoa(username+":"+password),
+			"Authorization": "Basic " + btoa(username + ":" + password),
 		},
 		body: JSON.stringify({
 			name: formName.value,
@@ -119,27 +118,27 @@ async function deleteById(id) {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
-			"Authorization": "Basic " + btoa(username+":"+password),
+			"Authorization": "Basic " + btoa(username + ":" + password),
 		}
 	});
 }
 
-function updatePagination(page){
+function updatePagination(page) {
 	const pageInput = document.getElementById("page");
 	pageInput.value = page;
 
-	const goToPage = page =>{
+	const goToPage = page => {
 		pageInput.value = page;
 		findAll();
 	}
 
 	const prevPageButton = document.getElementById("prev-page");
-	prevPageButton.onclick = function (){
-		goToPage(page -1);
+	prevPageButton.onclick = function () {
+		goToPage(page - 1);
 	}
 
 	const nextPageButton = document.getElementById("next-page");
-	nextPageButton.onclick = function(){
-		goToPage(page +1);
+	nextPageButton.onclick = function () {
+		goToPage(page + 1);
 	}
 }
